@@ -10,11 +10,13 @@ from django.shortcuts import render
 #     return HttpResponse("<h1><pre>                                                Jai Shree Pashuram Bhagwan</pre></h1>")
 
 def index(request):
-    params = {'name':'aseem','place':'harry'}
-    return render(request,'index.html',params)
+    # params = {'name':'aseem','place':'harry'}
+    return render(request,'index.html')
     # return HttpResponse("<h1>Home </h1>")
 
 def removepunc(request):
+    dj_text = request.GET.get('text','default')
+    print(dj_text)
     return HttpResponse("<h1>remove punc</h1>")
 
 def capfirst(request):

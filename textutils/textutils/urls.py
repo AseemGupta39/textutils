@@ -21,7 +21,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'), ## ''  isme index dalamna 
-    path('removepun',views.removepunc,name='removepun'), ## ''  
+    path('removepunc',views.removepunc,name='removepun'), ## ''  
     path('newlineremove',views.newlineremove,name='newlineremove'),  
     path('capitalizefirst',views.capfirst,name='capfirst'),  
     path('charcount',views.charcount,name='charcount'),  
