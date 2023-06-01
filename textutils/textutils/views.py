@@ -14,19 +14,26 @@ def index(request):
     return render(request,'index.html')
     # return HttpResponse("<h1>Home </h1>")
 
-def removepunc(request):
+def analyze(request):
     dj_text = request.GET.get('text','default')
-    print(dj_text)
-    return HttpResponse("<h1>remove punc</h1>")
+    removepunc = request.GET.get('removepunc','off')
+    print(removepunc)
+    return HttpResponse("<h1>remove punc </h1>")    
 
-def capfirst(request):
-    return HttpResponse("<h1>capitalize first</h1>")
 
-def newlineremove(request):
-    return HttpResponse("<h1>nlr</h1>")
+# def removepunc(request):
+#     dj_text = request.GET.get('text','default')
+#     print(dj_text)
+#     return HttpResponse("<h1>remove punc</h1>")
 
-def spaceremove(request):
-    return HttpResponse("<h1>space rem</h1>")
+# def capfirst(request):
+#     return HttpResponse("<h1>capitalize first</h1>")
 
-def charcount(request):
-    return HttpResponse("<h1>char count</h1>")
+# def newlineremove(request):
+#     return HttpResponse("<h1>nlr</h1>")
+
+# def spaceremove(request):
+#     return HttpResponse("<h1>space rem</h1>")
+
+# def charcount(request):
+#     return HttpResponse("<h1>char count</h1>")
