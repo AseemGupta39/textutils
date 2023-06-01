@@ -17,8 +17,10 @@ def index(request):
 def analyze(request):
     dj_text = request.GET.get('text','default')
     removepunc = request.GET.get('removepunc','off')
+    print(dj_text)
     print(removepunc)
-    return HttpResponse("<h1>remove punc </h1>")    
+    return render(request,'analyze.html')
+    # return HttpResponse("<h1>remove punc </h1>")    
 
 
 # def removepunc(request):
