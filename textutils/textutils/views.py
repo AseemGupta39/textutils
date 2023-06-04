@@ -19,7 +19,15 @@ def analyze(request):
     removepunc = request.GET.get('removepunc','off')
     print(dj_text)
     print(removepunc)
-    return render(request,'analyze.html')
+    # analysed = dj_text
+    punctuations = """!(){}[]":;'?/.>,<-+=|\@#$%^&*~`"""
+    analysed = ""
+    for char in dj_text:
+        if char not in punctuations:
+            analysed = analysed + char
+            
+    params = {'purpose':'removed  punctua','analysed_text':analysed}
+    return render(request,'analyze.html',params)
     # return HttpResponse("<h1>remove punc </h1>")    
 
 
