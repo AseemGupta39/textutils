@@ -20,14 +20,16 @@ def analyze(request):
     print(dj_text)
     print(removepunc)
     # analysed = dj_text
-    punctuations = """!(){}[]":;'?/.>,<-+=|\@#$%^&*~`"""
-    analysed = ""
-    for char in dj_text:
-        if char not in punctuations:
-            analysed = analysed + char
-            
-    params = {'purpose':'removed  punctua','analysed_text':analysed}
-    return render(request,'analyze.html',params)
+    if removepunc == "on":
+        punctuations = """!(){}[]":;'?/.>,<-+=|\@#$%^&*~`"""
+        analysed = ""
+        for char in dj_text:
+            if char not in punctuations:
+                analysed = analysed + char
+        params = {'purpose':'removed  punctua','analysed_text':analysed}
+        return render(request,'analyze.html',params)
+    else:
+        return HttpResponse("error ka chakkar babu bhaiya error ka chakkar")
     # return HttpResponse("<h1>remove punc </h1>")    
 
 
