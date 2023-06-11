@@ -14,11 +14,15 @@ def index(request):
     return render(request,'index.html')
     # return HttpResponse("<h1>Home </h1>")
 
+
 def analyze(request):
     dj_text = request.GET.get('text','default')
     removepunc = request.GET.get('removepunc','off')
-    print(dj_text)
-    print(removepunc)
+    fullcaps = request.GET.get('fullcaps','off')
+    
+    # print(dj_text)
+    # print(removepunc)
+
     # analysed = dj_text
     if removepunc == "on":
         punctuations = """!(){}[]":;'?/.>,<-+=|\@#$%^&*~`"""
@@ -28,6 +32,12 @@ def analyze(request):
                 analysed = analysed + char
         params = {'purpose':'removed  punctua','analysed_text':analysed}
         return render(request,'analyze.html',params)
+    elif(fullcaps == "on"):
+        analysed = dj_text.upper()
+        params = {'purpose':'full caps','analysed_text':analysed}
+        return render(request,'analyze.html',params)
+        
+
     else:
         return HttpResponse("error ka chakkar babu bhaiya error ka chakkar")
     # return HttpResponse("<h1>remove punc </h1>")    
